@@ -1,0 +1,7 @@
+baseURL = "https://sigilgate.github.io/"
+title = "SigilGate"
+theme = "compose"
+enableRobotsTXT = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

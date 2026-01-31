@@ -1,0 +1,5 @@
+enableDarkMode = true
+blogDir = "blog"
+
+[social]
+  github = "https://github.com/SigilGate"
