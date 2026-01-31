@@ -24,6 +24,10 @@ git submodule update --init --recursive
 hugo server -D
 ```
 
+## License
+
+See [LICENSE](LICENSE) for details.
+
 ## Deployment
 
 Pushing changes to `content/**` on `main` triggers the GitHub Actions workflow that builds and deploys the site to the `gh-pages` branch. Use `workflow_dispatch` for manual builds after config changes on the `hugo` branch.
