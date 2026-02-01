@@ -5,15 +5,17 @@ autoSwitchAppearance = true
 [footer]
   showAppearanceSwitcher = true
 
-homepage.layout = "page"
-homepage.showRecent = true
-homepage.recentLimit = 5
+[homepage]
+  layout = "page"
+  showRecent = true
+  recentLimit = 5
 
-article.showDate = true
-article.showReadingTime = true
-article.showEdit = true
-article.editURL = "https://github.com/SigilGate/SigilGate.github.io/tree/main/content/"
-article.editAppendPath = true
+[article]
+  showDate = true
+  showReadingTime = true
+  showEdit = true
+  editURL = "https://github.com/SigilGate/SigilGate.github.io/tree/main/content/"
+  editAppendPath = true
 
 [social]
   github = "https://github.com/SigilGate"
