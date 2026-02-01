@@ -1,0 +1,68 @@
+name: Telegram Blog Notification
+
+on:
+  push:
+    branches: [main]
+    paths: ['content/blog/**']
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find new blog posts and notify
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: "@SigilGate"
+          SITE_URL: "https://sigilgate.github.io"
+        run: |
+          # Найти новые/изменённые index.md в content/blog/
+          posts=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'content/blog/**/index.md')
+
+          if [ -z "$posts" ]; then
+            echo "Новых постов нет"
+            exit 0
+          fi
+
+          for post in $posts; do
+            echo "Обработка: $post"
+
+            # Проверить наличие тега "new" в frontmatter
+            tags=$(sed -n 's/^tags: *\[\(.*\)\]/\1/p' "$post")
+            if ! echo "$tags" | grep -qi '"new"'; then
+              echo "Пропуск (нет тега 'new'): $post"
+              continue
+            fi
+
+            # Извлечь title и summary из frontmatter
+            title=$(sed -n 's/^title: *"\(.*\)"/\1/p' "$post" | head -1)
+            summary=$(sed -n 's/^summary: *"\(.*\)"/\1/p' "$post" | head -1)
+
+            # Сформировать URL из пути файла
+            # content/blog/2026/02/01/path-rotation/index.md -> /blog/2026/02/01/path-rotation/
+            url_path=$(echo "$post" | sed 's|^content||; s|/index\.md$|/|')
+            url="${SITE_URL}${url_path}"
+
+            # Сформировать сообщение
+            message=$(cat <<EOF
+          ${title}
+
+          ${summary}
+
+          ${url}
+          EOF
+          )
+
+            # Отправить в Telegram
+            curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              -d text="${message}" \
+              -d parse_mode="Markdown" \
+              -d disable_web_page_preview="false"
+
+            echo "Отправлено: $title"
+          done
