@@ -8,6 +8,9 @@ homepage.recentLimit = 5
 
 article.showDate = true
 article.showReadingTime = true
+article.showEdit = true
+article.editURL = "https://github.com/SigilGate/SigilGate.github.io/tree/main/content/"
+article.editAppendPath = true
 
 [social]
   github = "https://github.com/SigilGate"
