@@ -2,6 +2,9 @@ colorScheme = "congo"
 defaultAppearance = "dark"
 autoSwitchAppearance = true
 
+[header]
+  layout = "hybrid"
+
 [footer]
   showAppearanceSwitcher = false
 

@@ -1,4 +1,28 @@
 [[main]]
+  name = "Документация"
+  pageRef = "docs"
+  weight = 10
+
+[[main]]
   name = "Блог"
   pageRef = "blog"
-  weight = 1
+  weight = 20
+
+[[main]]
+  name = "О проекте"
+  pageRef = "about"
+  weight = 30
+
+[[main]]
+  identifier = "appearance"
+  weight = 40
+  [main.params]
+    action = "appearance"
+    showName = false
+
+[[main]]
+  identifier = "locale"
+  weight = 50
+  [main.params]
+    action = "locale"
+    showName = false
