@@ -1,6 +1,6 @@
 ---
 title: "First impressions of the new theme"
-date: 2026-02-01T12:00:00+00:00
+date: 2026-02-01T04:00:00+00:00
 draft: false
 summary: "Congo works great out of the box, but one small detail needed a manual fix."
 tags: ["site", "hugo", "theme"]
