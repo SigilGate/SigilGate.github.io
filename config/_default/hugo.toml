@@ -1,5 +1,5 @@
 baseURL = "https://sigilgate.github.io/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "ru"
 theme = "congo"
 enableRobotsTXT = true
 
