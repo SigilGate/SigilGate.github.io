@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Find new blog posts and notify
         env:
@@ -20,8 +20,10 @@ jobs:
           TELEGRAM_CHAT_ID: "@SigilGate"
           SITE_URL: "https://sigilgate.github.io"
         run: |
-          # Найти новые/изменённые index.md в content/blog/
-          posts=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'content/blog/**/index.md')
+          # Найти новые index.md во всём диапазоне коммитов пуша
+          BEFORE=${{ github.event.before }}
+          AFTER=${{ github.event.after }}
+          posts=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'content/blog/**/index.md')
 
           if [ -z "$posts" ]; then
             echo "Новых постов нет"
