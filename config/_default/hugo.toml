@@ -1,6 +1,6 @@
 baseURL = "https://sigilgate.github.io/"
-title = "SigilGate"
-theme = "compose"
+defaultContentLanguage = "en"
+theme = "congo"
 enableRobotsTXT = true
 
 [outputs]

@@ -1,3 +1,6 @@
 [submodule "themes/compose"]
 	path = themes/compose
 	url = https://github.com/info-tech-io/compose.git
+[submodule "themes/congo"]
+	path = themes/congo
+	url = https://github.com/jpanther/congo.git

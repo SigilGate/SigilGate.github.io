@@ -1,5 +1,13 @@
-enableDarkMode = true
-blogDir = "blog"
+colorScheme = "congo"
+defaultAppearance = "dark"
+autoSwitchAppearance = false
+
+homepage.layout = "page"
+homepage.showRecent = true
+homepage.recentLimit = 5
+
+article.showDate = true
+article.showReadingTime = true
 
 [social]
   github = "https://github.com/SigilGate"
