@@ -3,10 +3,10 @@ defaultAppearance = "dark"
 autoSwitchAppearance = true
 
 [footer]
-  showAppearanceSwitcher = true
+  showAppearanceSwitcher = false
 
 [homepage]
-  layout = "page"
+  layout = "profile"
   showRecent = true
   recentLimit = 5
 

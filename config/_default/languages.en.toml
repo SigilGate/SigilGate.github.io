@@ -2,3 +2,13 @@ languageCode = "en"
 languageName = "English"
 weight = 2
 title = "SigilGate"
+
+[params.author]
+  name = "SigilGate"
+  image = "img/avatar.png"
+  headline = "Free internet without borders"
+  links = [
+    { github = "https://github.com/SigilGate" },
+    { telegram = "#" },
+    { discord = "#" },
+  ]
