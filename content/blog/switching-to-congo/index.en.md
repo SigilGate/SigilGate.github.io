@@ -26,6 +26,7 @@ If you want to see what the theme looks like on real sites:
 
 - [Congo demo](https://jpanther.github.io/congo/) — the official theme demo
 - [leif.io](https://leif.io) — personal site and tech blog
+- [antoinesoetewey.com](https://antoinesoetewey.com) — personal site
 - [major.io](https://major.io) — personal site and blog
 - [softwarewitchcraft.com](https://softwarewitchcraft.com) — personal blog
 - [gorbe.io](https://gorbe.io) — business site and blog
