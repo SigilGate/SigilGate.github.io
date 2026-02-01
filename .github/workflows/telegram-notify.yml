@@ -44,9 +44,10 @@ jobs:
             title=$(sed -n 's/^title: *"\(.*\)"/\1/p' "$post" | head -1)
             summary=$(sed -n 's/^summary: *"\(.*\)"/\1/p' "$post" | head -1)
 
-            # Сформировать URL из пути файла
-            # content/blog/2026/02/01/path-rotation/index.md -> /blog/2026/02/01/path-rotation/
-            url_path=$(echo "$post" | sed 's|^content||; s|/index\.md$|/|')
+            # Сформировать URL из slug (имя папки перед index.md)
+            # content/blog/2026/02/01/path-rotation/index.md -> /blog/path-rotation/
+            slug=$(echo "$post" | sed 's|/index\.md$||; s|.*/||')
+            url_path="/blog/${slug}/"
             url="${SITE_URL}${url_path}"
 
             # Сформировать сообщение
