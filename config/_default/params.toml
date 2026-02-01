@@ -1,6 +1,9 @@
 colorScheme = "congo"
 defaultAppearance = "dark"
-autoSwitchAppearance = false
+autoSwitchAppearance = true
+
+[footer]
+  showAppearanceSwitcher = true
 
 homepage.layout = "page"
 homepage.showRecent = true
