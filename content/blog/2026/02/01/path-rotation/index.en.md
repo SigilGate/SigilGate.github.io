@@ -1,5 +1,6 @@
 ---
 title: "gRPC path rotation"
+slug: "ротация-grpc-путей"
 date: 2026-02-01T18:30:00+00:00
 draft: false
 summary: "It's been on the roadmap for a while — and it's finally done. The most vulnerable segment of the network is now protected by automatic address rotation."
