@@ -2,6 +2,6 @@
 title: "SigilGate"
 ---
 
-Welcome to **SigilGate** — an open-source organization building tools and templates for the modern web.
+Добро пожаловать в **SigilGate** — open-source организацию, создающую инструменты и шаблоны для современного веба.
 
-Explore our [blog](/blog/) for updates, guides, and technical deep-dives.
+Загляните в наш [блог](/blog/), чтобы следить за обновлениями, гайдами и техническими разборами.

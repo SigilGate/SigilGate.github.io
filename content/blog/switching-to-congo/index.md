@@ -1,33 +1,33 @@
 ---
-title: "Switching to Congo"
+title: "Переходим на Congo"
 date: 2026-02-01
 draft: false
-summary: "We switched our site theme from Compose to Congo — here's why."
-tags: ["site", "hugo", "theme"]
+summary: "Мы сменили тему сайта с Compose на Congo — рассказываем, почему."
+tags: ["сайт", "hugo", "тема"]
 ---
 
-We've switched the SigilGate site from the Compose theme to [Congo](https://github.com/jpanther/congo). A few reasons behind the change.
+Мы перевели сайт SigilGate с темы Compose на [Congo](https://github.com/jpanther/congo). Вот несколько причин.
 
-## Why Congo?
+## Почему Congo?
 
-**Fresh look.** Sometimes you just want something new. Compose served us well, but we felt like trying a different aesthetic direction.
+**Свежий взгляд.** Иногда просто хочется чего-то нового. Compose нас устраивала, но захотелось сменить визуальное направление.
 
-**Multilingual support.** Congo has first-class i18n support with per-language config files. As the project grows, we want the site to be accessible in more than one language.
+**Мультиязычность.** Congo поддерживает i18n из коробки — отдельные конфиги для каждого языка. По мере роста проекта мы хотим, чтобы сайт был доступен на нескольких языках.
 
-**Dark purple palette.** Congo's default dark appearance leans into deep violet tones — and that happens to match the mood we're going for. We've been thinking about the project's visual identity: dark purple and blue on a white background, with bright pops of red-pink and cyan-blue as accents.
+**Тёмно-фиолетовая палитра.** Тёмное оформление Congo уходит в глубокие фиолетовые тона — и это совпадает с настроением, которое мы ищем. Мы думаем над визуальной идентичностью проекта: тёмно-фиолетовые и голубые тона на белом фоне, с яркими вкраплениями красно-розового и сине-голубого.
 
-## Mascot idea
+## Идея маскота
 
-We're also toying with the idea of a project mascot — a catgirl sorceress in dark violet robes, wearing a druid's hood with glowing pink eyes peeking out from underneath, holding a magic staff. Purely a concept for now, but it fits the vibe. A proper brand book is on the to-do list.
+Ещё мы вынашиваем идею маскота проекта — кошкодевочка-волшебница в тёмно-фиолетовых одеждах, в капюшоне друида, из-под которого светятся розовые глаза, с волшебным посохом в руках. Пока это только концепт, но он хорошо ложится в общую атмосферу. Составление брендбука — в планах.
 
-## Examples of Congo in the wild
+## Примеры сайтов на Congo
 
-If you want to see what the theme looks like on real sites:
+Если хотите посмотреть, как тема выглядит на реальных сайтах:
 
-- [Congo demo](https://jpanther.github.io/congo/) — the official theme demo
-- [leif.io](https://leif.io) — personal site and tech blog
-- [major.io](https://major.io) — personal site and blog
-- [softwarewitchcraft.com](https://softwarewitchcraft.com) — personal blog
-- [gorbe.io](https://gorbe.io) — business site and blog
+- [Congo demo](https://jpanther.github.io/congo/) — официальное демо темы
+- [leif.io](https://leif.io) — личный сайт и техноблог
+- [major.io](https://major.io) — личный сайт и блог
+- [softwarewitchcraft.com](https://softwarewitchcraft.com) — личный блог
+- [gorbe.io](https://gorbe.io) — бизнес-сайт и блог
 
-You can find the full list of sites using Congo on the [theme's users page](https://jpanther.github.io/congo/users/).
+Полный список сайтов на Congo можно найти на [странице пользователей темы](https://jpanther.github.io/congo/users/).
