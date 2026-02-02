@@ -9,6 +9,6 @@ title = "SigilGate"
   headline = "Free internet without borders"
   links = [
     { github = "https://github.com/SigilGate" },
-    { telegram = "#" },
+    { telegram = "https://t.me/SigilGate" },
     { discord = "#" },
   ]
