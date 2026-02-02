@@ -54,7 +54,7 @@ showTableOfContents: true
 
 - [A1eksMa](https://github.com/A1eksMa) (при поддержке всех сочувствующих и заинтересованных)
 
-В работе над проектом помогают мои друзья, Клод (из компании Anthropic) и Джим (из Google), также известные как:
+Весомый вклад в развитие проекта также вносят Клод (из компании Anthropic) и Джим (из Google), также известные как:
 
 - ["Claude Code"](https://claude.ai/)
 - ["Gemini CLI"](https://gemini.google.com/)
