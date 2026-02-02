@@ -1,6 +1,6 @@
 # SigilGate.github.io
 
-Source repository for the [SigilGate GitHub Pages](https://sigilgate.github.io/) site, built with [Hugo](https://gohugo.io/) and the [Compose](https://github.com/info-tech-io/compose) theme.
+Source repository for the [SigilGate GitHub Pages](https://sigilgate.github.io/) site, built with [Hugo](https://gohugo.io/) and the [Congo](https://github.com/jpanther/congo) theme.
 
 ## Branch structure
 
@@ -9,20 +9,6 @@ Source repository for the [SigilGate GitHub Pages](https://sigilgate.github.io/)
 | `main` | Content (`content/`), workflow, README, LICENSE |
 | `hugo` | Hugo config, theme submodule, static assets |
 | `gh-pages` | Built site (deployed automatically) |
-
-## Local development
-
-```bash
-# Clone with submodules from hugo branch
-git clone -b main https://github.com/SigilGate/SigilGate.github.io.git
-cd SigilGate.github.io
-git fetch origin hugo
-git checkout origin/hugo -- config/ themes/ .gitmodules
-git submodule update --init --recursive
-
-# Run Hugo dev server
-hugo server -D
-```
 
 ## License
 
