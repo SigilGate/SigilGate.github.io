@@ -30,12 +30,12 @@ graph TD
     Root -->|SSH| Entry2
     Root -->|SSH| Entry3
 
-    style Root fill:#b91c1c,color:#fff,stroke:#991b1b
+    style Root fill:#7c3aed,color:#fff,stroke:#6d28d9
     style Core1 fill:#1d4ed8,color:#fff,stroke:#1e40af
     style Core2 fill:#1d4ed8,color:#fff,stroke:#1e40af
-    style Entry1 fill:#047857,color:#fff,stroke:#065f46
-    style Entry2 fill:#047857,color:#fff,stroke:#065f46
-    style Entry3 fill:#047857,color:#fff,stroke:#065f46
+    style Entry1 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Entry2 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Entry3 fill:#0891b2,color:#fff,stroke:#0e7490
 {{< /mermaid >}}
 
 ## Характеристики
@@ -69,12 +69,12 @@ graph TD
     IntCA1 -->|"выпускает"| Cert2
     IntCA2 -->|"выпускает"| Cert3
 
-    style RootCA fill:#b91c1c,color:#fff,stroke:#991b1b
+    style RootCA fill:#7c3aed,color:#fff,stroke:#6d28d9
     style IntCA1 fill:#1d4ed8,color:#fff,stroke:#1e40af
     style IntCA2 fill:#1d4ed8,color:#fff,stroke:#1e40af
-    style Cert1 fill:#047857,color:#fff,stroke:#065f46
-    style Cert2 fill:#047857,color:#fff,stroke:#065f46
-    style Cert3 fill:#047857,color:#fff,stroke:#065f46
+    style Cert1 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Cert2 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Cert3 fill:#0891b2,color:#fff,stroke:#0e7490
 {{< /mermaid >}}
 
 - Root CA выпускает сертификаты **только для Core-нод**.

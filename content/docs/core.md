@@ -12,7 +12,7 @@ weight: 20
 ## Роль в архитектуре
 
 {{< mermaid >}}
-graph LR
+graph TD
     Client["Клиент"]
     Entry["Entry-нода"]
     Core["Core-нода"]
@@ -23,8 +23,8 @@ graph LR
     Core --> Internet
 
     style Core fill:#1d4ed8,color:#fff,stroke:#1e40af,stroke-width:3px
-    style Client fill:#6b7280,color:#fff,stroke:#4b5563
-    style Entry fill:#047857,color:#fff,stroke:#065f46
+    style Client fill:#64748b,color:#fff,stroke:#475569
+    style Entry fill:#0891b2,color:#fff,stroke:#0e7490
     style Internet fill:#374151,color:#fff,stroke:#1f2937
 {{< /mermaid >}}
 
@@ -59,8 +59,8 @@ graph TD
 
     style Nginx fill:#7c3aed,color:#fff,stroke:#6d28d9
     style Xray fill:#2563eb,color:#fff,stroke:#1d4ed8
-    style Site fill:#6b7280,color:#fff,stroke:#4b5563
-    style Entry fill:#047857,color:#fff,stroke:#065f46
+    style Site fill:#64748b,color:#fff,stroke:#475569
+    style Entry fill:#0891b2,color:#fff,stroke:#0e7490
     style Internet fill:#374151,color:#fff,stroke:#1f2937
 {{< /mermaid >}}
 

@@ -26,9 +26,9 @@ weight: 10
 
 | Сущность | Роль | Плоскость |
 |----------|------|-----------|
-| [Root-нода]({{< ref "docs/root-node" >}}) | Центр управления, PKI, развертывание | Управление |
-| [Core-нода]({{< ref "docs/core-node" >}}) | Ядро сети, маршрутизация трафика в интернет | Данные + управление |
-| [Entry-нода]({{< ref "docs/entry-node" >}}) | Входной узел, прием клиентских подключений | Данные |
+| [Root-нода]({{< ref "docs/root" >}}) | Центр управления, PKI, развертывание | Управление |
+| [Core-нода]({{< ref "docs/core" >}}) | Ядро сети, маршрутизация трафика в интернет | Данные + управление |
+| [Entry-нода]({{< ref "docs/entry" >}}) | Входной узел, прием клиентских подключений | Данные |
 | Клиент | Устройство пользователя | Данные |
 
 ## Топология сети
@@ -43,36 +43,25 @@ graph TD
 
     Core1["Core-нода #1"]
     Core2["Core-нода #2"]
-    Core3["Core-нода #3"]
 
     Entry1["Entry-нода A"]
     Entry2["Entry-нода B"]
     Entry3["Entry-нода C"]
-    Entry4["Entry-нода D"]
-    Entry5["Entry-нода E"]
 
     Root -->|SSH| Core1
     Root -->|SSH| Core2
-    Root -->|SSH| Core3
     Root -->|SSH| Entry1
     Root -->|SSH| Entry2
     Root -->|SSH| Entry3
-    Root -->|SSH| Entry4
-    Root -->|SSH| Entry5
 
     Core1 ---|"mesh"| Core2
-    Core2 ---|"mesh"| Core3
-    Core1 ---|"mesh"| Core3
 
-    style Root fill:#b91c1c,color:#fff,stroke:#991b1b
+    style Root fill:#7c3aed,color:#fff,stroke:#6d28d9
     style Core1 fill:#1d4ed8,color:#fff,stroke:#1e40af
     style Core2 fill:#1d4ed8,color:#fff,stroke:#1e40af
-    style Core3 fill:#1d4ed8,color:#fff,stroke:#1e40af
-    style Entry1 fill:#047857,color:#fff,stroke:#065f46
-    style Entry2 fill:#047857,color:#fff,stroke:#065f46
-    style Entry3 fill:#047857,color:#fff,stroke:#065f46
-    style Entry4 fill:#047857,color:#fff,stroke:#065f46
-    style Entry5 fill:#047857,color:#fff,stroke:#065f46
+    style Entry1 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Entry2 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Entry3 fill:#0891b2,color:#fff,stroke:#0e7490
 {{< /mermaid >}}
 
 ### Плоскость данных
@@ -80,7 +69,7 @@ graph TD
 Пользовательский трафик проходит через цепочку: Клиент → Entry-нода → Core-нода → Интернет. Root-нода не участвует в передаче данных.
 
 {{< mermaid >}}
-graph LR
+graph TD
     Client["Клиент<br/><small>внутри региона</small>"]
     Entry["Entry-нода<br/><small>внутри региона</small>"]
     Core["Core-нода<br/><small>вне региона</small>"]
@@ -90,8 +79,8 @@ graph LR
     Entry -->|"VLESS + gRPC<br/>TLS 1.3"| Core
     Core --> Internet
 
-    style Client fill:#6b7280,color:#fff,stroke:#4b5563
-    style Entry fill:#047857,color:#fff,stroke:#065f46
+    style Client fill:#64748b,color:#fff,stroke:#475569
+    style Entry fill:#0891b2,color:#fff,stroke:#0e7490
     style Core fill:#1d4ed8,color:#fff,stroke:#1e40af
     style Internet fill:#374151,color:#fff,stroke:#1f2937
 {{< /mermaid >}}
@@ -127,11 +116,11 @@ graph TD
 
     style Core1 fill:#1d4ed8,color:#fff,stroke:#1e40af
     style Core2 fill:#1d4ed8,color:#fff,stroke:#1e40af
-    style E1 fill:#047857,color:#fff,stroke:#065f46
-    style E2 fill:#047857,color:#fff,stroke:#065f46
-    style E3 fill:#047857,color:#fff,stroke:#065f46
-    style E4 fill:#047857,color:#fff,stroke:#065f46
-    style E5 fill:#047857,color:#fff,stroke:#065f46
+    style E1 fill:#0891b2,color:#fff,stroke:#0e7490
+    style E2 fill:#0891b2,color:#fff,stroke:#0e7490
+    style E3 fill:#0891b2,color:#fff,stroke:#0e7490
+    style E4 fill:#0891b2,color:#fff,stroke:#0e7490
+    style E5 fill:#0891b2,color:#fff,stroke:#0e7490
 {{< /mermaid >}}
 
 ### Связность для передачи данных
@@ -180,7 +169,7 @@ graph TB
 
     style TLS fill:#7c3aed,color:#fff,stroke:#6d28d9
     style gRPC fill:#2563eb,color:#fff,stroke:#1d4ed8
-    style VLESS fill:#059669,color:#fff,stroke:#047857
+    style VLESS fill:#1d4ed8,color:#fff,stroke:#1e40af
 {{< /mermaid >}}
 
 | Уровень | Технология | Назначение |
@@ -218,12 +207,12 @@ graph TD
     IntCA1 --> Cert2
     IntCA2 --> Cert3
 
-    style RootCA fill:#b91c1c,color:#fff,stroke:#991b1b
+    style RootCA fill:#7c3aed,color:#fff,stroke:#6d28d9
     style IntCA1 fill:#1d4ed8,color:#fff,stroke:#1e40af
     style IntCA2 fill:#1d4ed8,color:#fff,stroke:#1e40af
-    style Cert1 fill:#047857,color:#fff,stroke:#065f46
-    style Cert2 fill:#047857,color:#fff,stroke:#065f46
-    style Cert3 fill:#047857,color:#fff,stroke:#065f46
+    style Cert1 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Cert2 fill:#0891b2,color:#fff,stroke:#0e7490
+    style Cert3 fill:#0891b2,color:#fff,stroke:#0e7490
 {{< /mermaid >}}
 
 | Сертификат | Где хранится | Срок жизни | Отзыв |
