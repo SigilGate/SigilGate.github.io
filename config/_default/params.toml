@@ -19,6 +19,10 @@ autoSwitchAppearance = true
   showEdit = true
   editURL = "https://github.com/SigilGate/SigilGate.github.io/tree/main/content/"
   editAppendPath = true
+  showTableOfContents = true
+
+[list]
+  showTableOfContents = true
 
 [social]
   github = "https://github.com/SigilGate"
