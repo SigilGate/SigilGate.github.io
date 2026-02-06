@@ -4,9 +4,9 @@ weight = 2
 title = "SigilGate"
 
 [params.author]
-  name = "SigilGate"
+  name = "Sigil Gate"
   image = "img/avatar.png"
-  headline = "Free internet without borders"
+  headline = "Building tunnels, bridging gaps, connecting people."
   links = [
     { github = "https://github.com/SigilGate" },
     { telegram = "https://t.me/SigilGate" },
