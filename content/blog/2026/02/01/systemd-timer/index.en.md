@@ -1,7 +1,7 @@
 ---
 title: "Systemd timer: time to leave the cave"
 slug: "systemd-timer-время-выходить-из-пещеры"
-date: 2026-02-01T00:00:00+00:00
+date: 2026-02-01T23:00:00+00:00
 draft: false
 summary: "I've been using cron my whole life. Turns out there's been something better for quite a while."
 tags: ["linux", "systemd", "automation"]
