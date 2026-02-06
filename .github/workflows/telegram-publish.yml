@@ -1,0 +1,110 @@
+name: Publish to Telegram
+
+on:
+  push:
+    branches: [telegram]
+    paths: ['content/**']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: >-
+      !contains(github.event.head_commit.message, 'message_id') &&
+      github.event.head_commit.author.name != 'github-actions[bot]'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Process posts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: "@SigilGate"
+        run: |
+          BEFORE=${{ github.event.before }}
+          AFTER=${{ github.event.after }}
+
+          # Первый пуш в ветку: BEFORE — нули
+          if echo "$BEFORE" | grep -qE '^0+$'; then
+            echo "Первый пуш в ветку, ищем все index.md"
+            new_posts=$(git ls-tree -r --name-only HEAD -- 'content/' | grep 'index\.md$')
+            modified_posts=""
+          else
+            new_posts=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'content/**/index.md')
+            modified_posts=$(git diff --name-only --diff-filter=M "$BEFORE" "$AFTER" -- 'content/**/index.md')
+          fi
+
+          # Новые посты: отправить и сохранить message_id
+          for post in $new_posts; do
+            echo "Новый пост: $post"
+
+            # Извлечь текст (убрать front matter)
+            content=$(sed '1{/^---$/!q;};1,/^---$/d' "$post" | sed '/^$/d' | head -1 && sed '1{/^---$/!q;};1,/^---$/d' "$post" | tail -n +2)
+            content=$(sed '1{/^---$/!q;};1,/^---$/d' "$post")
+
+            if [ -z "$(echo "$content" | tr -d '[:space:]')" ]; then
+              echo "Пустой контент, пропуск: $post"
+              continue
+            fi
+
+            response=$(curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              --data-urlencode text="${content}" \
+              -d parse_mode="Markdown" \
+              -d disable_web_page_preview="true")
+
+            ok=$(echo "$response" | jq -r '.ok')
+            message_id=$(echo "$response" | jq -r '.result.message_id')
+
+            if [ "$ok" = "true" ] && [ "$message_id" != "null" ]; then
+              sed -i "s/^telegram_message_id:.*/telegram_message_id: ${message_id}/" "$post"
+              echo "Опубликовано: $post (message_id: $message_id)"
+            else
+              echo "Ошибка публикации: $post"
+              echo "Ответ: $response"
+            fi
+          done
+
+          # Изменённые посты: отредактировать сообщение
+          for post in $modified_posts; do
+            echo "Изменённый пост: $post"
+
+            message_id=$(sed -n 's/^telegram_message_id: *\(.*\)/\1/p' "$post" | tr -d '[:space:]')
+
+            if [ -z "$message_id" ]; then
+              echo "Нет message_id, пропуск: $post"
+              continue
+            fi
+
+            content=$(sed '1{/^---$/!q;};1,/^---$/d' "$post")
+
+            response=$(curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/editMessageText" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              -d message_id="${message_id}" \
+              --data-urlencode text="${content}" \
+              -d parse_mode="Markdown" \
+              -d disable_web_page_preview="true")
+
+            ok=$(echo "$response" | jq -r '.ok')
+
+            if [ "$ok" = "true" ]; then
+              echo "Отредактировано: $post (message_id: $message_id)"
+            else
+              echo "Ошибка редактирования: $post"
+              echo "Ответ: $response"
+            fi
+          done
+
+      - name: Commit message_id updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Нет обновлений message_id"
+          else
+            git commit -m "message_id update"
+            git push
+          fi
