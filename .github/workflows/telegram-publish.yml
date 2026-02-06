@@ -5,6 +5,9 @@ on:
     branches: [telegram]
     paths: ['content/**']
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -41,7 +44,6 @@ jobs:
             echo "Новый пост: $post"
 
             # Извлечь текст (убрать front matter)
-            content=$(sed '1{/^---$/!q;};1,/^---$/d' "$post" | sed '/^$/d' | head -1 && sed '1{/^---$/!q;};1,/^---$/d' "$post" | tail -n +2)
             content=$(sed '1{/^---$/!q;};1,/^---$/d' "$post")
 
             if [ -z "$(echo "$content" | tr -d '[:space:]')" ]; then
