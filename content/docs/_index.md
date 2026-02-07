@@ -3,6 +3,7 @@ title: "Документация"
 description: "Архитектура и устройство сети Sigil Gate"
 summary: "Обзор архитектуры, типы нод, принципы маскировки и устойчивости к DPI"
 weight: 10
+groupByYear: false
 ---
 
 {{< lead >}}
