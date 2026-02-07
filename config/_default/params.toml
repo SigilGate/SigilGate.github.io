@@ -20,6 +20,7 @@ autoSwitchAppearance = true
   editURL = "https://github.com/SigilGate/SigilGate.github.io/tree/main/content/"
   editAppendPath = true
   showTableOfContents = true
+  invertPagination = true
 
 [list]
   showTableOfContents = true
