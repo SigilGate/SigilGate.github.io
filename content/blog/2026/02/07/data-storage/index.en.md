@@ -44,7 +44,7 @@ Bidirectional synchronization ties both layers together: Git → KV during deplo
 
 This approach satisfies both requirements at once: decentralized operational management through the KV cluster, and guaranteed data preservation and recovery through Git.
 
-For now it's a design — implementation lies ahead. But the general principles have been formulated and documented. Details are in the [Data Storage]({{< ref "docs/data_storage" >}}) section of the documentation.
+For now it's a design — implementation lies ahead. But the general principles have been formulated and documented.
 
 ---
 
