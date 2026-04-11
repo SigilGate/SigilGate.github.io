@@ -1,0 +1,10 @@
+baseURL = "https://sigilgate.github.io/"
+defaultContentLanguage = "ru"
+theme = "congo"
+enableRobotsTXT = true
+
+[permalinks]
+  blog = "/blog/:slug/"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

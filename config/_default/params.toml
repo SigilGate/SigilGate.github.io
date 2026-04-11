@@ -1,0 +1,36 @@
+colorScheme = "congo"
+defaultAppearance = "dark"
+autoSwitchAppearance = true
+
+[header]
+  layout = "hybrid"
+
+[footer]
+  showAppearanceSwitcher = false
+
+[homepage]
+  layout = "profile"
+  showRecent = true
+  recentLimit = 5
+
+[article]
+  showDate = true
+  showReadingTime = true
+  showEdit = true
+  editURL = "https://github.com/SigilGate/SigilGate.github.io/tree/main/content/"
+  editAppendPath = true
+  showTableOfContents = true
+  showTaxonomies = true
+  invertPagination = true
+
+[list]
+  showTableOfContents = true
+  showSummary = true
+  showTaxonomies = true
+
+[taxonomy]
+  showTermCount = true
+
+[social]
+  github = "https://github.com/SigilGate"
+  telegram = "https://t.me/SigilGate"

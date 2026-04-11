@@ -1,0 +1,14 @@
+languageCode = "ru"
+languageName = "Русский"
+weight = 1
+title = "SigilGate"
+
+[params.author]
+  name = "Sigil Gate"
+  image = "img/avatar.png"
+  headline = "Строим туннели, наводим мосты, соединяем страны и континенты."
+  links = [
+    { github = "https://github.com/SigilGate" },
+    { telegram = "https://t.me/SigilGate" },
+    { discord = "#" },
+  ]
