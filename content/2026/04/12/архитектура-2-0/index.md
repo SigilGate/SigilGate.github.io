@@ -1,7 +1,7 @@
 ---
 title: "Архитектура 2.0"
 date: 2026-04-12T13:00:00+00:00
-telegram_message_id:
+telegram_message_id: 73
 ---
 
 🔄 *Архитектура 2.0*
