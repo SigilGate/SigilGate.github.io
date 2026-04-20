@@ -1,7 +1,7 @@
 ---
 title: "Новые жильцы"
 date: 2026-04-20T12:00:00+00:00
-telegram_message_id:
+telegram_message_id: 77
 ---
 
 🏠 *Новые жильцы*
