@@ -1,7 +1,7 @@
 ---
 title: "RSA vs Ed25519"
 date: 2026-04-22T00:00:00+00:00
-telegram_message_id:
+telegram_message_id: 78
 ---
 
 🦕 *RSA vs Ed25519*
