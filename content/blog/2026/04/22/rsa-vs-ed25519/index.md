@@ -42,3 +42,22 @@ Cron и systemd timer — лишь одна из маленьких льдино
 Простите мне мою профдеформацию старого препода. Я всегда объясняю, в расчёте на нулевой уровень подготовки. И я всегда рад, если в аудитории находятся подготовленные студенты, которым не надо ничего объяснять.
 
 Итак, продолжаем... Тема сегодняшней лекции: **«RSA vs Ed25519»**.
+
+---
+
+# RSA vs Ed25519
+
+Сначала несколько ссылок:
+- [Secure Secure Shell](https://blog.stribik.technology/2015/01/04/secure-secure-shell.html)
+- [RSA vs. DSA for SSH authentication keys](https://security.stackexchange.com/questions/5096/rsa-vs-dsa-for-ssh-authentication-keys/46781#46781)
+- [Понимание различных типов SSH ключей](https://www.dev-notes.ru/articles/devops/understanding-the-different-types-of-ssh-key/)
+- [ssh ed25519 ключи против RSA -- Преимущества и недостатки? Что используют другие? ](https://www.reddit.com/r/sysadmin/comments/4gktbr/ssh_ed25519_keys_vs_rsa_benefits_and_drawbacks/?tl=ru)
+- [Трагическая история. Алгоритм RSA](https://habr.com/ru/articles/75193/)
+- [RSA простыми словами и в картинках](https://habr.com/ru/articles/745820/)
+- [Доступно о криптографии на эллиптических кривых](https://habr.com/ru/articles/335906/)
+- [Электронная подпись - Ed25519](https://ecp.sale/glossary/ed25519.html)
+- [Как я НЕ взломал ED25519](https://habr.com/ru/articles/939686/)
+- [Curve25519, EdDSA и Poly1305: Три обделенных вниманием криптопримитива](https://habr.com/ru/articles/247873/)
+- [Выпуск OpenSSH 6.5](https://www.opennet.ru/opennews/art.shtml?num=38971)
+- [OpenSSH против SSH](https://habr.com/ru/companies/ruvds/articles/751756/)
+- [ASecuritySite: When Bob Met Alice](https://medium.com/asecuritysite-when-bob-met-alice/so-what-is-ed25519-and-what-does-it-have-to-do-with-curve-25519-f229804f2d08)
