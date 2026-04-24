@@ -4,16 +4,26 @@ on:
   push:
     branches: [telegram]
     paths: ['content/**']
+  workflow_dispatch:
+    inputs:
+      post_path:
+        description: 'Путь к файлу поста (например: content/2026/04/24/slug/index.md)'
+        required: true
+        type: string
 
 permissions:
   contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     if: >-
-      !contains(github.event.head_commit.message, 'message_id') &&
-      github.event.head_commit.author.name != 'github-actions[bot]'
+      github.event_name == 'workflow_dispatch' ||
+      (!contains(github.event.head_commit.message, 'message_id') &&
+      github.event.head_commit.author.name != 'github-actions[bot]')
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,17 +38,24 @@ jobs:
         run: |
           git config core.quotePath false
 
-          BEFORE=${{ github.event.before }}
-          AFTER=${{ github.event.after }}
+          publish_failed=0
 
-          # Первый пуш в ветку: BEFORE — нули
-          if echo "$BEFORE" | grep -qE '^0+$'; then
-            echo "Первый пуш в ветку, ищем все index.md"
-            new_posts=$(git ls-tree -r --name-only HEAD -- 'content/' | grep 'index\.md$')
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            new_posts="${{ inputs.post_path }}"
             modified_posts=""
           else
-            new_posts=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'content/**/index.md')
-            modified_posts=$(git diff --name-only --diff-filter=M "$BEFORE" "$AFTER" -- 'content/**/index.md')
+            BEFORE=${{ github.event.before }}
+            AFTER=${{ github.event.after }}
+
+            # Первый пуш в ветку: BEFORE — нули
+            if echo "$BEFORE" | grep -qE '^0+$'; then
+              echo "Первый пуш в ветку, ищем все index.md"
+              new_posts=$(git ls-tree -r --name-only HEAD -- 'content/' | grep 'index\.md$')
+              modified_posts=""
+            else
+              new_posts=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'content/**/index.md')
+              modified_posts=$(git diff --name-only --diff-filter=M "$BEFORE" "$AFTER" -- 'content/**/index.md')
+            fi
           fi
 
           # Новые посты: отправить и сохранить message_id
@@ -68,6 +85,7 @@ jobs:
             else
               echo "Ошибка публикации: $post"
               echo "Ответ: $response"
+              publish_failed=1
             fi
           done
 
@@ -98,8 +116,11 @@ jobs:
             else
               echo "Ошибка редактирования: $post"
               echo "Ответ: $response"
+              publish_failed=1
             fi
           done
+
+          exit $publish_failed
 
       - name: Commit message_id updates
         run: |
