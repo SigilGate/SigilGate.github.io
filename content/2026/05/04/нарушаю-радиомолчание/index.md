@@ -1,7 +1,7 @@
 ---
 title: "Нарушаю радиомолчание"
 date: 2026-05-04T00:00:00+00:00
-telegram_message_id:
+telegram_message_id: 80
 ---
 
 📻 *Нарушаю радиомолчание*
