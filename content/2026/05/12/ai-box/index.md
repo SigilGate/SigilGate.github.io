@@ -1,7 +1,7 @@
 ---
 title: "AI из браузера"
 date: 2026-05-12T00:00:00+00:00
-telegram_message_id:
+telegram_message_id: 81
 ---
 
 🛠 *AI из браузера*
