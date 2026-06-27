@@ -1,7 +1,7 @@
 ---
 title: "Ключи от цифрового мира"
 date: 2026-06-27T00:00:00+00:00
-telegram_message_id:
+telegram_message_id: 83
 ---
 
 🖊️ *Ключи от цифрового мира*
